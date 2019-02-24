@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES2015",
+    "module": "es2015",
+    "declaration": true,
+    "outDir": "./js",
+    "rootDir": "./ts",
+    "strict": true,
+    "noImplicitAny": false,
+    "strictPropertyInitialization": false,
+    "typeRoots": ["typings"],
+    "esModuleInterop": true
+  }
+}
