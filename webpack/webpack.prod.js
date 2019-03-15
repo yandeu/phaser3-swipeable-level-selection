@@ -1,7 +1,6 @@
 const path = require('path')
 const merge = require('webpack-merge')
 const common = require('./webpack.common')
-const ImageminPlugin = require('imagemin-webpack-plugin').default
 const JavaScriptObfuscator = require('webpack-obfuscator')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 
@@ -20,7 +19,9 @@ const prod = {
     }
   },
   plugins: [
-    new CleanWebpackPlugin(['dist/*.js'], { root: path.resolve(__dirname, '../') }),
+    new CleanWebpackPlugin(['dist/*.js'], {
+      root: path.resolve(__dirname, '../')
+    }),
     new JavaScriptObfuscator(
       {
         rotateStringArray: true,
@@ -29,12 +30,7 @@ const prod = {
         stringArrayThreshold: 0.75
       },
       ['vendors.*.js']
-    ),
-    new ImageminPlugin({
-      disable: false,
-      test: /\.(jpe?g|png|gif|svg)$/i,
-      cacheFolder: path.resolve('./.cache')
-    })
+    )
   ]
 }
 
